@@ -1,17 +1,18 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { Navbar } from '@/components';
+import { Navbar, Footer } from '@/components';
 
 const App = () => {
   return (
     <Router>
       <div className="flex flex-col justify-between h-screen">
         <Navbar />
-        <main>COntent</main>
-      </div>
-      <Routes>
+        {/* <Routes> */}
+        <main className="container px-3 pb-12 mx-auto">Content</main>
         {/* <Route path="/" element={<Home />} /> */}
         {/* <Route path="*" element={<NotFound />} /> */}
-      </Routes>
+        {/* </Routes> */}
+        <Footer />
+      </div>
     </Router>
   );
 };

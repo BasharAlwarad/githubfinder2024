@@ -29,9 +29,9 @@ const Themes = () => {
   };
 
   return (
-    <details className="dropdown">
-      <summary className="m-1 btn">Themes</summary>
-      <ul className="menu dropdown-content bg-base-100 rounded-box z-[1] shadow">
+    <details className="dropdown w-[5rem]">
+      <summary className=" btn">Themes</summary>
+      <ul className="w-[5rem] mt-1 menu dropdown-content bg-base-100 rounded-box z-[1] shadow">
         {themes.map((theme) => (
           <li key={theme.name} onClick={() => toggleTheme(theme.name)}>
             {theme.icon}
