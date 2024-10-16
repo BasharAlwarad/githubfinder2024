@@ -1,20 +1,18 @@
-const App = () => {
-  const toggleTheme = () => {
-    const currentTheme = document.documentElement.getAttribute('data-theme');
-    const newTheme = currentTheme === 'mydarktheme' ? 'light' : 'mydarktheme';
-    document.documentElement.setAttribute('data-theme', newTheme);
-  };
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { Navbar } from '@/components';
 
+const App = () => {
   return (
-    <div className="min-h-screen">
-      <button onClick={toggleTheme} className="btn">
-        Toggle Theme
-      </button>
-      <div className="p-6">
-        <h1 className="text-2xl">Welcome to My App!</h1>
-        <p>This is a sample application using DaisyUI with Tailwind CSS.</p>
+    <Router>
+      <div className="flex flex-col justify-between h-screen">
+        <Navbar />
+        <main>COntent</main>
       </div>
-    </div>
+      <Routes>
+        {/* <Route path="/" element={<Home />} /> */}
+        {/* <Route path="*" element={<NotFound />} /> */}
+      </Routes>
+    </Router>
   );
 };
 
