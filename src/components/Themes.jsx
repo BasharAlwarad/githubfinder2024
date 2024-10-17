@@ -1,40 +1,28 @@
-// Import necessary icons
 import { FaMoon, FaSun, FaRobot } from 'react-icons/fa';
 import { IoMdNuclear } from 'react-icons/io';
 import { GiCircuitry } from 'react-icons/gi';
 
 const Themes = () => {
   const themes = [
-    {
-      name: 'myDarkTheme',
-      icon: <FaMoon className="pr-2 text-5xl text-black" />,
-    },
-    { name: 'light', icon: <FaSun className="pr-2 text-5xl text-pink-500" /> },
-    {
-      name: 'cyberpunk',
-      icon: <FaRobot className="pr-2 text-5xl text-yellow-500" />,
-    },
-    {
-      name: 'luxury',
-      icon: <IoMdNuclear className="pr-2 text-5xl text-green-500" />,
-    },
-    {
-      name: 'synthwave',
-      icon: <GiCircuitry className="pr-2 text-5xl text-blue-500" />,
-    },
+    { name: 'myDarkTheme', Icon: FaMoon, color: 'text-black' },
+    { name: 'light', Icon: FaSun, color: 'text-pink-500' },
+    { name: 'cyberpunk', Icon: FaRobot, color: 'text-yellow-500' },
+    { name: 'luxury', Icon: IoMdNuclear, color: 'text-green-500' },
+    { name: 'synthwave', Icon: GiCircuitry, color: 'text-blue-500' },
   ];
-
-  const toggleTheme = (mode) => {
-    document.documentElement.setAttribute('data-theme', mode);
-  };
 
   return (
     <details className="dropdown w-[5rem]">
-      <summary className=" btn">Themes</summary>
+      <summary className="btn">Themes</summary>
       <ul className="w-[5rem] mt-1 menu dropdown-content bg-base-100 rounded-box z-[1] shadow">
-        {themes.map((theme) => (
-          <li key={theme.name} onClick={() => toggleTheme(theme.name)}>
-            {theme.icon}
+        {themes.map(({ name, Icon, color }) => (
+          <li
+            key={name}
+            onClick={() =>
+              document.documentElement.setAttribute('data-theme', name)
+            }
+          >
+            <Icon className={`pr-2 text-5xl ${color}`} />
           </li>
         ))}
       </ul>

@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import { FaGithub } from 'react-icons/fa';
 
-import Themes from '../Themes';
+import { Themes } from '@/components';
 
 const Navbar = ({ title }) => {
   return (
@@ -27,10 +27,6 @@ const Navbar = ({ title }) => {
       <Themes />
     </nav>
   );
-};
-
-Navbar.defaultProps = {
-  title: 'GitHub Finder',
 };
 
 export default Navbar;
