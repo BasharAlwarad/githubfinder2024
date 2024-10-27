@@ -9,8 +9,8 @@ const UserResults = () => {
       {users ? (
         loading ? (
           <ul className="grid grid-cols-1 gap-8 xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2">
-            {users?.map((e) => (
-              <li key={e} className="text-center">
+            {users?.map((e, i) => (
+              <li key={i} className="text-center">
                 <div className="flex flex-col gap-4 w-52">
                   <div className="w-full h-32 skeleton"></div>
                   <div className="h-4 skeleton w-28"></div>
