@@ -3,7 +3,7 @@ import { FaGithub } from 'react-icons/fa';
 
 import { Themes } from '@/components';
 
-const Navbar = ({ title }) => {
+const Navbar = ({ title = 'Github Finder' }) => {
   return (
     <nav className="mb-12 shadow-lg navbar bg-neutral text-neutral-content">
       <div className="container mx-auto">
