@@ -1,9 +1,13 @@
-const usersReducer = (action, state) => {
-  switch (action.type) {
+const usersReducer = (state, { type, payload }) => {
+  switch (type) {
     case 'LOADING':
       return { ...state, loading: true };
-    case 'SET_USERS':
-      return action.payload;
+    case 'GET_USERS':
+      return { ...state, loading: false, users: payload.users };
+    case 'GET_USER':
+      return { ...state, loading: false, searchUser: payload.searchUser };
+    case 'CLEAR_USER':
+      return { ...state, loading: false, searchUser: null };
     default:
       return state;
   }

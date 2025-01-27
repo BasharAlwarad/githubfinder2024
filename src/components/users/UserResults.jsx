@@ -1,8 +1,8 @@
 import UserItem from './UserItem';
-import { useUserContext } from '@/contexts';
+// import { useUserContext } from '@/contexts';
 
-const UserResults = () => {
-  const { users, loading } = useUserContext();
+const UserResults = ({ users, loading }) => {
+  // const { users, loading } = useUserContext();
 
   return (
     <main>

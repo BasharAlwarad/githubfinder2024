@@ -1,7 +1,7 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { Navbar, Footer, FlexLayout } from '@/components';
 import { Home, NotFound, About, User } from '@/pages';
-import { UserProvider } from '@/contexts';
+import { UserProvider, AlertProvider } from '@/contexts';
 
 const App = () => {
   return (
@@ -9,14 +9,16 @@ const App = () => {
       <div className="flex flex-col justify-between h-screen">
         <Navbar />
         <FlexLayout>
-          <UserProvider>
-            <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="/users/:name" element={<User />} />
-              <Route path="/about" element={<About />} />
-              <Route path="*" element={<NotFound />} />
-            </Routes>
-          </UserProvider>
+          <AlertProvider>
+            <UserProvider>
+              <Routes>
+                <Route path="/" element={<Home />} />
+                <Route path="/users/:name" element={<User />} />
+                <Route path="/about" element={<About />} />
+                <Route path="*" element={<NotFound />} />
+              </Routes>
+            </UserProvider>
+          </AlertProvider>
         </FlexLayout>
         <Footer />
       </div>

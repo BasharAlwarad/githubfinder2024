@@ -1,3 +1,4 @@
 import { useUserContext, UserProvider } from './userContext';
+import { useAlertContext, AlertProvider } from './alertContext';
 
-export { useUserContext, UserProvider };
+export { useUserContext, UserProvider, useAlertContext, AlertProvider };
