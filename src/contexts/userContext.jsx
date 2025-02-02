@@ -9,9 +9,10 @@ export const UserProvider = ({ children }) => {
     loading: false,
     users: JSON.parse(localStorage.getItem('users')) || Array(10),
     searchUser: null,
+    user: null,
   };
 
-  const [{ loading, users, searchUser }, dispatch] = useReducer(
+  const [{ loading, users, user, searchUser }, dispatch] = useReducer(
     usersReducer,
     initialState
   );
@@ -40,8 +41,7 @@ export const UserProvider = ({ children }) => {
     }
   };
 
-  const fetchUser = async (e, name) => {
-    e.preventDefault();
+  const fetchUser = async (name) => {
     try {
       // if (!name.trim()) {
       //   alert('Please enter a username');
@@ -71,7 +71,7 @@ export const UserProvider = ({ children }) => {
 
   return (
     <UserContext.Provider
-      value={{ users, searchUser, loading, fetchUser, dispatch }}
+      value={{ users, user, searchUser, loading, fetchUser, dispatch }}
     >
       {children}
     </UserContext.Provider>

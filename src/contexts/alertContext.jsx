@@ -7,7 +7,7 @@ const alertReducer = (state, { type, payload }) => {
     case 'SHOW_ALERT':
       return { ...state, alert: payload.type, msg: payload.msg };
     case 'REMOVE_ALERT':
-      return { alert: null };
+      return { alert: null, msg: '' };
     default:
       return state;
   }
@@ -22,11 +22,12 @@ export const AlertProvider = ({ children }) => {
   const [{ alert, msg }, dispatch] = useReducer(alertReducer, initialState);
 
   const showAlert = (msg, type) => {
-    console.log(msg);
     dispatch({ type: 'SHOW_ALERT', payload: { msg, type } });
-    // const timeOut =
-    setTimeout(() => dispatch({ type: 'REMOVE_ALERT' }), 5000);
-    // clearTimeout(timeOut)
+
+    const timeOut = setTimeout(() => {
+      dispatch({ type: 'REMOVE_ALERT' });
+      clearTimeout(timeOut);
+    }, 3000);
   };
 
   return (
